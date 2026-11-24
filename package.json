@@ -31,11 +31,11 @@
 	"devDependencies": {
 		"@companion-module/tools": "^3.2.0",
 		"@types/node": "^26.0.0",
-		"eslint": "^10.2.0",
+		"eslint": "^10.15.0",
 		"prettier": "^3",
 		"tsx": "^4.19.0",
 		"typescript": "^5.7.0",
-		"typescript-eslint": "^8"
+		"typescript-eslint": "^8.73.0"
 	},
 	"prettier": "@companion-module/tools/.prettierrc.json",
 	"packageManager": "yarn@4.12.0"
