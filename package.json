@@ -11,7 +11,8 @@
 		"check": "companion-surface-check",
 		"package": "companion-surface-build",
 		"lint:raw": "eslint",
-		"lint": "yarn lint:raw ."
+		"lint": "yarn lint:raw .",
+		"layouts": "tsx scripts/make-layouts.ts"
 	},
 	"license": "MIT",
 	"repository": {

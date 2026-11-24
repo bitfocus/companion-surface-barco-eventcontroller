@@ -44,6 +44,11 @@ settings.
 
 Companion's button grid needs at least 18 columns × 5 rows for the whole surface.
 
+[layouts/](layouts) holds a Companion page for each console, `ec50-layout.companionconfig` and
+`ec30-layout.companionconfig`: every key at its position, labelled and coloured like the physical
+key, with no actions. Import one on an empty page as a starting point. They are generated from the
+key map with `yarn layouts`.
+
 ## Development
 
 Requires Node 22 and Yarn 4 (`corepack enable`).

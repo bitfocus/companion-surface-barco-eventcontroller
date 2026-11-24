@@ -17,6 +17,12 @@ have no key on that console. EC-30 support has not been tested on hardware yet.
 - Companion's button grid needs at least **18 columns × 5 rows** for the whole surface
   (Settings → Buttons → Grid Size).
 
+### Layout pages
+
+Ready-made Companion pages for the [EC-50 and EC-30](https://github.com/bitfocus/companion-surface-barco-eventcontroller/tree/main/layouts): every key at its position on the
+surface, labelled and coloured like the physical key, with no actions. Download the file for your
+console, then import it on an empty page (Import / Export → Import) and add actions from there.
+
 ### Keys and LCDs
 
 - The LCD keys (45 on the EC-50, 30 on the EC-30) show the button (64×32, black and white) with the button colour as backlight.
