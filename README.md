@@ -51,7 +51,8 @@ key map with `yarn layouts`.
 
 ## Development
 
-Requires Node 22 and Yarn 4 (`corepack enable`).
+Requires Node 26 and Yarn 4. Node 26 no longer includes corepack, so install it first:
+`npm install -g corepack`, then `corepack enable`.
 
 ```bash
 yarn install
