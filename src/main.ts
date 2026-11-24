@@ -1,5 +1,5 @@
 /**
- * Barco EC-50 surface module for Companion.
+ * Barco event controller (EC-50, EC-30) surface module for Companion.
  *
  * The EC-50 keyboard is an FTDI chip (Barco VID 0x0600) in MPSSE mode in front of a MAX 10
  * FPGA, so this uses the `scanForSurfaces` path rather than HID: D2XX on Windows (d2xx.ts),
@@ -34,7 +34,7 @@ import {
 	type PwmOutput,
 } from './showboard.js'
 
-/** "EC Show Board", the show section of the EC-50 (and of the EC-200's right-hand half). */
+/** "EC Show Board", the show section of the EC-50 (also used in the EC-30 and the EC-200's right-hand half). */
 const EC50_PRODUCT_ID = 0x0336
 const POLL_INTERVAL_MS = 10
 const LCD_FLUSH_DELAY_MS = 5
@@ -85,7 +85,7 @@ function readColor(color: string | undefined): { r: number; g: number; b: number
 
 class EC50Surface implements SurfaceInstance {
 	readonly surfaceId: string
-	readonly productName = 'Barco EC-50'
+	readonly productName = 'Barco Event Controller'
 
 	readonly #logger = createModuleLogger('ec50-surface')
 	readonly #context: SurfaceContext
@@ -283,7 +283,7 @@ function reportD2xxMissing(err: unknown): void {
 	if (d2xxMissingReported) return
 	d2xxMissingReported = true
 	createModuleLogger('ec50-surface').warn(
-		`FTDI D2XX driver not available (${String(err)}). Install Event Master Toolset or Barco's EC-50 USB driver.`,
+		`FTDI D2XX driver not available (${String(err)}). Install Event Master Toolset or Barco's event controller USB driver.`,
 	)
 }
 
@@ -294,7 +294,7 @@ function openTransport(handle: string): FtdiTransport {
 		return d2xx
 	}
 	const device = findDeviceByHandle(handle)
-	if (!device) throw new Error(`EC-50 at ${handle} is gone`)
+	if (!device) throw new Error(`Event controller at ${handle} is gone`)
 	const usbDevice = new FtdiDevice(device)
 	usbDevice.open()
 	return usbDevice
@@ -310,10 +310,10 @@ const plugin: SurfacePlugin<EC50Info> = {
 
 	async scanForSurfaces(): Promise<DetectionSurfaceInfo<EC50Info>[]> {
 		// A fixed surface id survives moving the cable to another socket; the host adds a suffix
-		// if a second EC-50 is plugged in.
+		// if a second console is plugged in.
 		const found = (handle: string): DetectionSurfaceInfo<EC50Info> => ({
-			surfaceId: 'barco-ec50',
-			description: 'Barco EC-50',
+			surfaceId: 'barco-eventcontroller',
+			description: 'Barco Event Controller',
 			deviceHandle: handle,
 			pluginInfo: { handle },
 		})

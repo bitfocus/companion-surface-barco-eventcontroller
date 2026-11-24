@@ -1,22 +1,25 @@
-## Barco EC-50
+## Barco Event Controller (EC-50, EC-30)
 
-Uses the keyboard section of a Barco EC-50 as a Companion surface: the destination and layer keys,
+Uses the keyboard section of a Barco EC-50 or EC-30 as a Companion surface: the destination and layer keys,
 the three Assign rows with their LCD keys, the transition keys and the T-bar. The built-in
 touchscreen is a normal monitor and is not handled by this module.
 
+The surface always shows the EC-50 layout. The EC-30 has fewer keys, so some buttons in the grid
+have no key on that console. EC-30 support has not been tested on hardware yet.
+
 ### Setup
 
-- **Close the Barco Event Master Toolset.** Only one program can use the EC-50 at a time.
+- **Close the Barco Event Master Toolset.** Only one program can use the console at a time.
 - **Windows:** nothing to install if the Event Master Toolset is installed; the module uses the
-  same Barco/FTDI driver. Otherwise install Barco's EC-50 USB driver. Don't replace it with WinUSB.
-- **Linux:** add a udev rule so Companion may open the device, then replug the EC-50:
+  same Barco/FTDI driver. Otherwise install Barco's event controller USB driver. Don't replace it with WinUSB.
+- **Linux:** add a udev rule so Companion may open the device, then replug the console:
   `SUBSYSTEM=="usb", ATTR{idVendor}=="0600", ATTR{idProduct}=="0336", MODE="0666"`
 - Companion's button grid needs at least **18 columns × 5 rows** for the whole surface
   (Settings → Buttons → Grid Size).
 
 ### Keys and LCDs
 
-- The 45 LCD keys show the button (64×32, black and white) with the button colour as backlight.
+- The LCD keys (45 on the EC-50, 30 on the EC-30) show the button (64×32, black and white) with the button colour as backlight.
   The backlight has 2 bits per colour, so colours are approximate. A black button with text gets a
   white backlight so the text stays readable.
 - Keys without an LCD light their LED in the button colour: destination and other blue-only keys

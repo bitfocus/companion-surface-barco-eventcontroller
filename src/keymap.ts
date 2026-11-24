@@ -156,7 +156,7 @@ function position(name: string): [number, number] {
 		ALL_TRANS: [4, 16],
 	}
 	const pos = fixed[name]
-	if (!pos) throw new Error(`no grid position for EC-50 key ${name}`)
+	if (!pos) throw new Error(`no grid position for show board key ${name}`)
 	return pos
 }
 

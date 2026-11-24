@@ -187,7 +187,7 @@ export class D2xxDevice implements FtdiTransport {
 
 	open(): void {
 		const handle: unknown[] = [null]
-		check(d2xx().openEx(this.#serial, FT_OPEN_BY_SERIAL_NUMBER, handle), `opening EC-50 ${this.#serial}`)
+		check(d2xx().openEx(this.#serial, FT_OPEN_BY_SERIAL_NUMBER, handle), `opening event controller ${this.#serial}`)
 		this.#handle = handle[0]
 	}
 

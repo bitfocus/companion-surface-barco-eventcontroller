@@ -1,11 +1,13 @@
-# companion-surface-barco-ec50
+# companion-surface-barco-eventcontroller
 
 A [Bitfocus Companion](https://bitfocus.io/companion) surface module for the keyboard of the
-**Barco EC-50** event controller: 82 keys, 45 LCD keys with RGB backlight, key LEDs, the T-bar and
-the console's script/work lights. The built-in touchscreen is a plain monitor and is out of scope.
+**Barco EC-50** and **EC-30** event controllers: the keys, LCD keys with RGB backlight, key LEDs, the
+T-bar and the console's script/work lights. The EC-50 has 82 keys, 45 of them LCD keys; by Barco's
+key table the EC-30 has 65 of those keys, 30 of them LCD keys. The built-in touchscreen is a plain
+monitor and is out of scope.
 
-Tested with Companion 5.0.6 on Windows on a real EC-50. The Linux/macOS (libusb) path builds but
-has not been tried on hardware yet. See [companion/HELP.md](companion/HELP.md) for user setup and
+Tested with Companion 5.0.6 on Windows on a real EC-50. The EC-30 uses the same show board but has
+not been tried on hardware yet, nor has the Linux/macOS (libusb) path. See [companion/HELP.md](companion/HELP.md) for user setup and
 settings.
 
 ## Features
@@ -28,6 +30,8 @@ settings.
 - Windows: Barco's signed FTDI driver owns the device, so the module uses FTDI's D2XX library
   (`ftd2xx.dll`, installed with that driver) through [koffi](https://koffi.dev). Linux and macOS
   use libusb.
+- The EC-30 uses the same show board with fewer keys fitted. The module shows the full EC-50 layout;
+  keys the EC-30 does not have stay unused.
 - Only one program can use the console at a time: close Event Master Toolset first.
 
 ## Layout
@@ -52,7 +56,7 @@ yarn lint
 ```
 
 Load it into Companion as a developer module: set Companion's developer modules folder to the
-parent folder of this repository, then add the _Barco EC-50_ surface integration under
+parent folder of this repository, then add the _Barco Event Controller_ surface integration under
 Surfaces.
 
 The module needs surface API 1.3 or older to load in Companion 5.0.x, so
@@ -61,11 +65,11 @@ The module needs surface API 1.3 or older to load in Companion 5.0.x, so
 ### Linux
 
 ```bash
-sudo cp linux/99-barco-ec50.rules /etc/udev/rules.d/
+sudo cp linux/99-barco-eventcontroller.rules /etc/udev/rules.d/
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
-Then unplug and replug the EC-50.
+Then unplug and replug the console.
 
 ## License
 

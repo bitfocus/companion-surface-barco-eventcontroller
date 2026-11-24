@@ -1,7 +1,7 @@
 {
-	"name": "companion-surface-barco-ec50",
+	"name": "companion-surface-barco-eventcontroller",
 	"version": "0.0.1",
-	"description": "Bitfocus Companion surface module for the Barco EC-50 keyboard",
+	"description": "Bitfocus Companion surface module for the Barco EC-50 and EC-30 event controller keyboards",
 	"type": "module",
 	"main": "dist/main.js",
 	"scripts": {
@@ -16,7 +16,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/greatmastix/companion-surface-barco-ec50.git"
+		"url": "git+https://github.com/bitfocus/companion-surface-barco-eventcontroller.git"
 	},
 	"engines": {
 		"node": "^22.12",
