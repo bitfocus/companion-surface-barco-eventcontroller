@@ -1,6 +1,6 @@
 {
 	"name": "companion-surface-barco-eventcontroller",
-	"version": "0.0.1",
+	"version": "1.0.0-beta.1",
 	"description": "Bitfocus Companion surface module for the Barco EC-50 and EC-30 event controller keyboards",
 	"type": "module",
 	"main": "dist/main.js",
